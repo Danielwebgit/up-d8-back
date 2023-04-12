@@ -15,7 +15,8 @@ class CreateAddressStatesTable extends Migration
     {
         Schema::create('address_states', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
+            $table->string("title", 20);
+            $table->string("letter", 5);
             $table->timestamps();
         });
     }

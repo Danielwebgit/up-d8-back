@@ -28,4 +28,14 @@ class Address extends Model
         }
         return $address;
     }
+
+    public function addressState()
+    {
+        return $this->hasMany(State::class, 'id', 'state_id');
+    }
+
+    public function addressCity()
+    {
+        return $this->hasMany(City::class, 'id', 'city_id');
+    }
 }
