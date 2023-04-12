@@ -19,7 +19,8 @@ class AddressRepository
             $clientId, [
             'client_id' => $clientId,
             'city_id' => $addressForm['city_id'],
-            'state_id' => $addressForm['state_id']
+            'state_id' => $addressForm['state_id'],
+            'address_detail' => $addressForm['address_detail']
         ]);
     }
 }
