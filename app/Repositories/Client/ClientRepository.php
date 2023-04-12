@@ -64,7 +64,7 @@ class ClientRepository
 
     public function delete(int $clientId)
     {
-        $client = $this->model->exist($clientId);
+        $client = $this->exist($clientId);
         
         if($client) {
             return $client->delete($clientId);
