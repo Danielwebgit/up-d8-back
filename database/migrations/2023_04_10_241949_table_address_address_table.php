@@ -25,6 +25,8 @@ class TableAddressAddressTable extends Migration
             $table->bigInteger('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
 
+            $table->string("address_detail", 50);
+
             $table->timestamps();
         });
     }

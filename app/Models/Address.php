@@ -14,7 +14,8 @@ class Address extends Model
     protected $fillable = [
         'client_id',
         'city_id',
-        'state_id'
+        'state_id',
+        'address_detail'
     ];
 
     public static function createOrUpdate($clientId, $data)
