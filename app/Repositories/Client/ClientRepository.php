@@ -17,7 +17,7 @@ class ClientRepository
     public function fetchClients($params)
     {
         $limitPage = 4;
-        $query = $this->model->query()->with('address');
+        $query = $this->model->query()->with('address.addressState', 'address.addressCity');
        
         if(!empty($params['page']) && count($params) > 1) {
             return (new ClientService)->search($params, $query)->paginate($limitPage);
