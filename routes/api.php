@@ -4,7 +4,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\{
-    ClientsController
+    ClientsController,
+    AddressController
 };
 
 /*
@@ -30,5 +31,16 @@ Route::prefix('v1')->group(function() {
         Route::post('/store', [ClientsController::class, 'store']);
         Route::put('/update/{id}', [ClientsController::class, 'update']);
         Route::delete('/destroy/{id}', [ClientsController::class, 'destroy']);
+    });
+});
+
+/** Group States v1 */
+Route::prefix('v1')->group(function() {
+    Route::prefix('states')->group(function (){
+        Route::get('/', [AddressController::class, 'fetchStates']);
+    });
+
+    Route::prefix('cities')->group(function (){
+        Route::get('/', [AddressController::class, 'fetchCities']);
     });
 });
