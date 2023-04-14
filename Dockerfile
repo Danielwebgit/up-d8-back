@@ -8,11 +8,14 @@ ARG uid=1000
 RUN apt-get update && apt-get install -y \
     git \
     curl \
+    vim \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
     zip \
     unzip
+
+COPY ./docker/php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/
 
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
