@@ -20,10 +20,11 @@ class ClientRepository
         $query = $this->model->query()->orderBy('created_at', 'desc')->with('address.addressState', 'address.addressCity');
        
         if(count($params) > 1) {
-            return (new ClientService)->search($params, $query)->paginate($limitPage);
+            $clients = (new ClientService)->search($params, $query)->paginate($limitPage);
+            return ['clients' => $clients, 'params' => $params];
         }
 
-        return $query->paginate($limitPage);
+        return ['clients' => $query->paginate($limitPage)];
     }
 
     public function createOrUpdateClient($clientForm, $clientId = null)
